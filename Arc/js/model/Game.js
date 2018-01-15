@@ -1,4 +1,4 @@
-var Game = function(ball, player, score,columns){
+var Game = function(ball, player, score,row){
 	this.ball = ball;
 	this.player = player;
 	this.score = score;
@@ -8,17 +8,17 @@ var Game = function(ball, player, score,columns){
 	var levelComplete = false;
 	var keyboard = {};
 	var blocks = new Array();
-	this.columns = columns;//ilosc blokow
+	this.row = row;//ilosc 
 
 	var generateBlocks = function(blocks){
 		var insertX = 10;//odstep od krawedzi
-		var row = 20 * columns;//ilosc wierszy 
+		var columns = 20 * row;//ilosc wierszy 
 		var insertY = canvas.height -420; //gdzie sie znajduja na planszy
 		var distance = 35;
 		var max = 700;
 
 		blocks.push(new Block(insertX, insertY, 15, 30));	
-		for(var count = 1; count < row; count ++){					
+		for(var count = 1; count < columns; count ++){					
 			insertX += distance;
 			if(insertX >= max){
 				insertY += 20;
